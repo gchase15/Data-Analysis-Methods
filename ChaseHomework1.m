@@ -14,7 +14,6 @@ k=(2*pi/(2*L))*[0:n/2-1 -n/2:-1]; %standard shifted frame
 ks=fftshift(k);%shifting k to unshift it
 
 [X,Y,Z]=meshgrid(x,y,z);
-[Kx,Ky,Kz]=meshgrid(k,k,k);
 [Kxs,Kys,Kzs]=meshgrid(ks,ks,ks);
 
 %% averaging the signal
@@ -53,7 +52,7 @@ tau=0.15;
  %gaussian filter centered on max value from averaging the noisy signal
  xslice=1.88;yslice=-1.05; zslice=0.05; 
  %the cut marks to show the filter distribution
- close all, slice(fftshift(Kx),fftshift(Ky),fftshift(Kz),fftshift(filter), xslice,yslice,zslice)
+ close all, slice(Kxs,Kys,Kzs,fftshift(filter), xslice,yslice,zslice)
  axis([-7 7 -7 7 -7 7]), grid on, drawnow 
  xlabel ('wavenumber (kx)'), ylabel ('wavenumber (ky)'),zlabel ('wavenumber (kz)'), title('Gaussian Filter')
  
