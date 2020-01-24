@@ -1,2 +1,2 @@
-# FFT-Marble
-AMATH 582 HW1
+# AMATH-582
+AMATH 582 HW1 code
