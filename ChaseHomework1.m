@@ -36,7 +36,6 @@ Utave=abs(Utave)/max(abs(Utave), [], 'all');
  %detection threshold is around .75
  axis([-7 7 -7 7 -7 7]), grid on, drawnow;
  xlabel ('wavenumber (kx)'), ylabel ('wavenumber (ky)'),zlabel ('wavenumber (kz)'), 
- title('Averaged Signal')
  pause(2)
  
  freqpos=find((Utave/max(Utave,[],'all'))==1);
@@ -54,7 +53,7 @@ tau=0.15;
  %the cut marks to show the filter distribution
  close all, slice(Kxs,Kys,Kzs,fftshift(filter), xslice,yslice,zslice)
  axis([-7 7 -7 7 -7 7]), grid on, drawnow 
- xlabel ('wavenumber (kx)'), ylabel ('wavenumber (ky)'),zlabel ('wavenumber (kz)'), title('Gaussian Filter')
+ xlabel ('wavenumber (kx)'), ylabel ('wavenumber (ky)'),zlabel ('wavenumber (kz)')
  
  %% finding the marble
  
@@ -67,14 +66,13 @@ tau=0.15;
    close all, isosurface(X,Y,Z,Unf/max(Unf, [], 'all'), .5:1) 
    %detection threshold of .5
    axis([-20 20 -20 20 -20 20]), grid on, drawnow  
-   xlabel ('distance(x)'), ylabel ('distance(y)'),zlabel ('distance(z)'), 
-   title('Marble Position')
+   xlabel ('distance(x)'), ylabel ('distance(y)'),zlabel ('distance(z)')
    pause(.2)
  end
  
  %% plotting the marble's path
 for j=1:20
- [mrow(j),mcol(j),mpage(j)]=ind2sub(size(Unf),path(j))
+ [mrow(j),mcol(j),mpage(j)]=ind2sub(size(Unf),path(j));
 end
 %this for loop deconstructs path into vectors containing x,y, and z
 %coordinates
@@ -83,8 +81,7 @@ end
  zpath=-L+((mpage/n)*(2*L));% z positions
   plot3(xpath,ypath,zpath, '-o')
   grid on 
- xlabel ('distance(x)'), ylabel ('distance(y)'),zlabel ('distance(z)'), 
-   title('Path of the Marble')
+ xlabel ('distance(x)'), ylabel ('distance(y)'),zlabel ('distance(z)')
 
 
 
