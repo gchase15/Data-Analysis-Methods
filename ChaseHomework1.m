@@ -15,6 +15,7 @@ ks=fftshift(k);%shifting k to unshift it
 
 [X,Y,Z]=meshgrid(x,y,z);
 [Kxs,Kys,Kzs]=meshgrid(ks,ks,ks);
+[Kx,Ky,Kz]=meshgrid(k,k,k);
 
 %% averaging the signal
 
