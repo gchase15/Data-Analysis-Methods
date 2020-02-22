@@ -222,13 +222,13 @@ xlabel('Frames'), ylabel('U')
   subplot(2,2,1)
   plot(t,xpos12,t,ypos12,t,xpos22,t,ypos22,t,xpos32,t,ypos32); 
    axis([0 310 -150 150])
-  legend('x1','y1','x1','y2','x3','y3','Location','NorthEast')
+  legend('x1','y1','x2','y2','x3','y3','Location','NorthEast')
   
   for j=1:3
   ff2=u2(:,1:j)*s2(1:j,1:j)*v2(:,1:j)'; % modal projections 
     subplot(2,2,j+1)
     plot(x2,ff2)
-      legend('x1','y1','x1','y2','x3','y3','Location','NorthEast')
+      legend('x1','y1','x2','y2','x3','y3','Location','NorthEast')
     axis([0 310 -150 150])
   end
   
