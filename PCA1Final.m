@@ -226,13 +226,13 @@ FrameLength=min(FrameLength);
   subplot(2,2,1)
   plot(t,xpos1,t,ypos1,t,xpos2,t,ypos2,t,xpos3,t,ypos3); 
    axis([0 230 -150 150])
-  legend('x1','y1','x1','y2','x3','y3','Location','SouthEast')
+  legend('x1','y1','x2','y2','x3','y3','Location','SouthEast')
   
   for j=1:3
   ff=u(:,1:j)*s(1:j,1:j)*v(:,1:j)'; % modal projections 
     subplot(2,2,j+1)
     plot(x,ff)
-    legend('x1','y1','x1','y2','x3','y3','Location','SouthEast')
+    legend('x1','y1','x2','y2','x3','y3','Location','SouthEast')
     axis([0 230 -150 150])
   end
 subplot(2,2,1), text(19,130,'(a)','Fontsize',[10]), xlabel('Frames'), ylabel('Displacement From Mean')
