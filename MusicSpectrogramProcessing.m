@@ -1,13 +1,11 @@
 %%Compile Music 
 clear all; close all; clc
-
-mainpath = 'C:\Users\gavin\Documents\MATLAB\HW4Music';
+mainpath = 'C:\Users\gavin\Documents\MATLAB\HW4Music\Bluegrass\newBlue';
 D=dir(fullfile(mainpath,'*.m4a'));
 
 %%  Construct Spectrogram images of music files
 Lclip=5.4;
- 
-    for j=1:numel(D)
+     for j=1:numel(D)
          musicfile = audioread(fullfile(mainpath,D(j).name));
          resampmusic = [];
          for i=1:(floor(length(musicfile)/2))
@@ -44,18 +42,6 @@ Lclip=5.4;
          musicstept=fft(musicstep); 
          musicstept_spec=[musicstept_spec; 
          abs(fftshift(musicstept))];     
-%          figure(1)
-%          subplot(3,1,1), plot(tp,resampmusic,'k',tp,step,'r')
-%           xlabel('Time [sec]'); 
-%           ylabel('Amplitude'); 
-%           subplot(3,1,2), plot(tp,musicstep,'k')
-%           xlabel('Time [sec]'); 
-%           ylabel('Amplitude'); 
-%           subplot(3,1,3), plot(kps/(2*pi),abs(fftshift(musicstept))/max(abs(musicstept))) 
-%           xlabel('Frequency [Hz]'); 
-%           ylabel('|FFT(v)|')
-%           axis([-1200 1200 0 1])
-%           drawnow
     end
 
 tslidep=linspace(0,Lclip,length(tslide));
@@ -64,18 +50,17 @@ pcolor(tslidep,kps/(2*pi),musicstept_spec.'),
 shading interp 
 set(gca,'XTick',[],'YTick',[],'Ylim',[0 2000],'Fontsize',[14]) 
 colormap(hsv)
-newFileNameChar = 'Bluegrass' + string(j) + '.jpg';
+newFileNameChar = 'Bluegrass' + string(j+13) + '.jpg';
 print(newFileNameChar,'-djpeg'); 
-close(f)         
-         
+close(f)            
 filescomplete = j
     end
     
     
     %% Gets rid of white border and grayscales images
     
-     mainpath = 'C:\Users\gavin\Documents\MATLAB\HW4Music\Test1Samples';
-D=dir(fullfile(mainpath,'ArmySongs*'));   
+     mainpath = 'C:\Users\gavin\Documents\MATLAB\HW4Music\Test3Samples';
+D=dir(fullfile(mainpath,'*.jpg'));   
 %     figure(8)
     for j=1:numel(D)
         thisfile = fullfile(mainpath,D(j).name);
